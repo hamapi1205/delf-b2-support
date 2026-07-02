@@ -24,90 +24,91 @@
 ### 共通プロンプト(全カードでこの部分は固定)
 
 ```
-Oracle card illustration, 〔MOTIF〕, elegant Japanese-inspired art style,
-deep navy night sky background with gold accents, a thin glowing red
-thread of fate woven through the composition, ornate gold border frame,
-soft mystical lighting, warm and reassuring mood, vertical 4:5 card,
-clean flat illustration, no text, no people's faces
+Tarot-style oracle card illustration, 〔COMPOSITION〕, golden age tarot aesthetic,
+deep navy and midnight blue background with gold leaf accents, intricate geometric
+border pattern in gold and silver, mystical and classical mood, silhouettes or
+back views of figures, a glowing red thread of fate woven into the composition,
+ornate renaissance-inspired decorative elements, soft luminous lighting, vertical
+4:5 card, detailed illustration style, no text, no visible faces
 ```
 
-〔MOTIF〕を下の表から差し替えて生成 → **番号(特大)とカード名をCanvaで後乗せ**します。
+〔COMPOSITION〕を下の表から差し替えて生成 → **番号(特大)とカード名をCanvaで後乗せ**します。
 文字を後乗せにするのは、誤字防止と「高速回転でもスクショで番号が読める」ため。番号は上部に画面幅の1/3くらいの大きさで。
 
 ### 一の章 ご縁(1〜10)
 
-| # | カード | MOTIF(英語) |
+| # | カード | COMPOSITION(英語) |
 |---|---|---|
-| 1 | 赤い糸 | a single glowing red thread floating across the night sky, connecting two distant points of light |
-| 2 | 結び目 | a beautiful decorative Japanese mizuhiki knot tied in red thread, glowing softly |
-| 3 | はじまりの風 | cherry blossom petals and a red thread carried by a gentle spring breeze over a path |
-| 4 | 再会 | two paper lanterns floating toward each other on a calm night river |
-| 5 | 約束 | a pinky-promise gesture made of intertwined red threads under stars |
-| 6 | 手紙 | a sealed old-fashioned letter tied with red thread, glowing faintly |
-| 7 | 鈴の音 | a small golden shrine bell with a red cord, sound ripples visualized as golden circles |
-| 8 | 橋 | an arched wooden bridge over a starry river, red thread following the railing |
-| 9 | 灯籠 | a stone lantern glowing warmly in a dark garden, red thread wrapped around its base |
-| 10 | 鳥居 | a vermilion torii gate under the night sky, path of light leading through it |
+| 1 | 赤い糸 | two women's hands facing each other, connected by a glowing red thread in the center, ornate gold circular mandala frame around them, dark mystical background |
+| 2 | 結び目 | a woman's silhouette tying an intricate red thread knot with both hands, elegant gold filigree border, contemplative pose |
+| 3 | はじまりの風 | woman's back view, hair flowing in wind, stepping onto a garden path, early spring flowers blooming, soft golden light ahead |
+| 4 | 再会 | two silhouettes of women facing each other, reaching hands toward center, gap between them closing, warm golden glow where hands nearly touch |
+| 5 | 約束 | two women's hands in pinky promise gesture, red thread weaving through their intertwined fingers, starry background above |
+| 6 | 手紙 | woman's hands writing with an ornate pen on aged parchment, red ribbon and wax seal, glowing letters rising from the page |
+| 7 | 鈴の音 | woman's hand holding up a golden shrine bell, concentric rings of light emanating outward, mystical golden aura |
+| 8 | 橋 | two silhouettes on an ornate arched bridge meeting in center, red thread wrapped along bridge railings, starlit river below |
+| 9 | 灯籠 | woman lighting a stone lantern, warm golden light spreading outward in geometric patterns, garden shrine setting |
+| 10 | 鳥居 | woman's silhouette walking through a vermilion torii gate, sacred path ahead, spiritual light surrounding the gateway |
 
 ### 二の章 月と星(11〜20)
 
-| # | カード | MOTIF(英語) |
+| # | カード | COMPOSITION(英語) |
 |---|---|---|
-| 11 | 新月 | a dark new moon outlined by a thin ring of silver light, stars around it |
-| 12 | 三日月 | a delicate crescent moon cradling a small red thread like a hammock |
-| 13 | 満月 | a large luminous full moon rising over calm water, golden reflection |
-| 14 | 月光 | moonbeams falling through clouds onto a sleeping town, gentle and protective |
-| 15 | 流れ星 | a bright shooting star with a red thread tail crossing the sky |
-| 16 | 北極星 | one bright polar star above a compass rose, all constellations turning around it |
-| 17 | 天の川 | the Milky Way as a river of stars, red thread bridging its two banks |
-| 18 | 夜明け | the horizon just before sunrise, deep navy melting into pale gold |
-| 19 | 朝日 | a warm rising sun over mountains, rays of gold, morning mist clearing |
-| 20 | 虹 | a soft rainbow appearing after rain, raindrops still sparkling |
+| 11 | 新月 | woman kneeling in prayer pose facing a new moon, moonless sky filled with stars, protective circular aura of light |
+| 12 | 三日月 | delicate crescent moon gently cradling a woman's silhouette like a hammock, peaceful sleeping pose |
+| 13 | 満月 | woman standing with arms raised toward a luminous full moon, golden rays touching her fingertips, powerful upright stance |
+| 14 | 月光 | woman sleeping peacefully on a veranda, moonlight rays falling protectively across her form, serene composition |
+| 15 | 流れ星 | woman gazing upward with wonder, bright shooting star streaking across sky, her reaching hand echoing the star's trajectory |
+| 16 | 北極星 | woman's silhouette pointing toward one bright polar star, compass rose geometry below, constellations rotating around the center star |
+| 17 | 天の川 | two women standing on opposite banks of the Milky Way river, red thread stretching between them across the star-bridge |
+| 18 | 夜明け | woman with arms spread wide facing the pre-dawn horizon, transition from deep navy to pale gold, moment of awakening |
+| 19 | 朝日 | woman opening her eyes, warm rising sun illuminating her face (back view), golden rays filling the entire composition |
+| 20 | 虹 | woman standing with arms open toward a full rainbow, rain still falling, joyful uplifted posture, light rays through clouds |
 
 ### 三の章 季節(21〜30)
 
-| # | カード | MOTIF(英語) |
+| # | カード | COMPOSITION(英語) |
 |---|---|---|
-| 21 | 春風 | flowing ribbons of warm wind with petals, loosening a knot of red thread |
-| 22 | 桜 | a magnificent cherry tree in full bloom at night, illuminated softly |
-| 23 | 新緑 | fresh young green leaves with morning dew, red thread as a vine among them |
-| 24 | 七夕笹 | bamboo branches with colorful tanzaku wish papers under the Milky Way |
-| 25 | 花火 | a grand firework blooming over a summer festival river |
-| 26 | 月見 | tsukimi dango and pampas grass on a veranda facing the harvest moon |
-| 27 | 紅葉 | crimson maple leaves drifting on a stream, gold light between them |
-| 28 | 初雪 | first snow falling silently on a shrine roof, untouched white ground |
-| 29 | 椿 | a single deep-red camellia flower blooming against snow |
-| 30 | 梅 | plum blossoms opening on a branch while snow still remains, promise of spring |
+| 21 | 春風 | woman's back view with long flowing hair in wind, ribbons and petals swirling around her, a knotted red thread unraveling in the breeze |
+| 22 | 桜 | woman standing beneath a magnificent cherry tree in full nighttime bloom, illuminated softly by inner light, blossoms falling |
+| 23 | 新緑 | woman's hand reaching toward fresh green leaves, morning dew sparkling, red thread woven among sprouting branches |
+| 24 | 七夕笹 | woman hanging colorful tanzaku wish papers on bamboo branches, Milky Way visible above, sacred ritual moment |
+| 25 | 花火 | woman watching a grand firework burst overhead, reflected in water below, arms raised in joy and wonder |
+| 26 | 月見 | woman sitting on a veranda with tsukimi dango, pampas grass beside her, harvest moon visible in frame, meditative pose |
+| 27 | 紅葉 | woman's hands catching falling crimson maple leaves, stream flowing below, gold light between the leaves |
+| 28 | 初雪 | woman standing on shrine roof watching first snow fall silently, untouched white ground below, peaceful solitude |
+| 29 | 椿 | woman's hand gently touching a single deep-red camellia blooming against white snow, delicate strength |
+| 30 | 梅 | woman gazing at plum blossoms opening on a branch, snow still visible on ground, promise of spring in her posture |
 
 ### 四の章 こころ(31〜40)
 
-| # | カード | MOTIF(英語) |
+| # | カード | COMPOSITION(英語) |
 |---|---|---|
-| 31 | 深呼吸 | gentle spirals of breath-like light rising in calm air, tranquil zen mood |
-| 32 | 涙 | a single luminous teardrop becoming a small star as it falls |
-| 33 | 鏡 | an ornate hand mirror reflecting soft light and a red thread heart |
-| 34 | 手放し | open hands releasing glowing petals and threads into the wind |
-| 35 | ゆるし | soft light breaking through clouds onto a quiet forest clearing |
-| 36 | 微笑み | a warm glowing crescent shape like a gentle smile, radiating soft light |
-| 37 | 休息 | a cozy sleeping cat curled on a cushion, steam from a teacup, warm lamplight |
-| 38 | 勇気 | a small bird taking its first leap from a branch into the open sky |
-| 39 | 素直 | a flower bud opening honestly toward the light, dew sparkling |
-| 40 | 感謝 | hands gently holding a small glowing sphere of golden light |
+| 31 | 深呼吸 | woman in meditation pose with gentle spirals of breath-like light rising from her, centered calm composition, zen temple setting |
+| 32 | 涙 | woman's profile as a single luminous teardrop falls from her cheek, transforming into a star mid-fall, poignant beauty |
+| 33 | 鏡 | woman holding an ornate mirror, red thread heart visible in the reflection, discovering her own beauty |
+| 34 | 手放し | woman's open hands releasing glowing petals and threads upward into wind, liberation gesture, empty hands ready for new things |
+| 35 | ゆるし | woman standing in a quiet forest clearing with soft light breaking through clouds above, peaceful acceptance |
+| 36 | 微笑み | woman's back view with a warm glowing smile, radiating soft golden light outward, gentle expression |
+| 37 | 休息 | woman sleeping peacefully on cushions, warm lamplight glowing, steam from teacup nearby, safe and cozy sanctuary |
+| 38 | 勇気 | woman in silhouette taking a leap from a high branch into open sky, moment of brave action, determined posture |
+| 39 | 素直 | woman opening like a flower toward light, dew sparkling on her form, vulnerable but radiant honesty |
+| 40 | 感謝 | woman's hands gently cradling a glowing golden sphere of light, grateful reverent pose, treasure held in palms |
 
 ### 五の章 みらい(41〜50)
 
-| # | カード | MOTIF(英語) |
+| # | カード | COMPOSITION(英語) |
 |---|---|---|
-| 41 | 種まき | a hand scattering glowing seeds into rich dark soil under stars |
-| 42 | 芽吹き | a tiny green sprout breaking through soil, roots visible below glowing |
-| 43 | 蕾 | a plump flower bud about to open, first hint of color at its tip |
-| 44 | 泉 | a clear spring welling up in a mossy forest, endlessly flowing |
-| 45 | 舟 | a small wooden boat drifting peacefully on a starlit river, no oars |
-| 46 | 扉 | a beautiful old door slightly ajar with warm light spilling out |
-| 47 | 鍵 | an ornate golden key on a red thread, keyhole glowing nearby |
-| 48 | 誓い | two rings connected by a red thread under a starry canopy |
-| 49 | 祝福 | falling flower petals and light like confetti over a path of light |
-| 50 | しあわせ | a warm golden landscape at sunset, red thread leading to a bright horizon |
+| 41 | 種まき | woman's hand scattering glowing seeds into rich dark soil, starlight illuminating the moment, sacred planting ritual |
+| 42 | 芽吹き | tiny green sprout breaking through dark soil, woman's hand guiding it, roots glowing below, miracle of growth |
+| 43 | 蕾 | woman's hand cradling a plump flower bud about to open, first hint of color at its tip, anticipation in the pose |
+| 44 | 泉 | woman kneeling by a clear spring welling up in mossy forest, hands cupping endless flowing water, abundance |
+| 45 | 舟 | woman sitting peacefully in a small wooden boat drifting on starlit river, no oars, trusting the current, surrender |
+| 46 | 扉 | woman standing before an ornate old door slightly ajar, warm golden light spilling out, moment before entering |
+| 47 | 鍵 | woman's hand holding an ornate golden key on a red thread, matching keyhole glowing nearby, power and permission |
+| 48 | 誓い | two women's hands with rings connected by a red thread under a starry canopy, eternal promise gesture |
+| 49 | 祝福 | woman with arms raised as flower petals and light fall like confetti around her, celebration path of golden light |
+| 50 | しあわせ | woman standing in a warm golden landscape at sunset, red thread leading to bright horizon, complete fulfillment |
 
 ## 制作の手順(おすすめ)
 
