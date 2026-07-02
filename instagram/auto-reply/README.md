@@ -64,7 +64,10 @@ ManyChatやエルグラムが裏側で使っているのと**同じMeta公式の
 
 ## 文面のカスタマイズ
 
-- 鑑定メッセージ: `cards.json` を編集(季節限定カードの追加もここ)
+- デッキの切り替え: 環境変数 `DECK_FILE` で選択
+  - `cards.json` = タロット20枚(デフォルト)
+  - `cards-oracle.json` = ハルの縁結びオラクル50枚(→ [oracle-deck.md](../oracle-deck.md))
+- 鑑定メッセージ: 各デッキのJSONを編集(季節限定カードの追加もここ)
 - LINE誘導文: 環境変数 `DM_FOOTER`
 - 番号なしコメントへの公開返信: 環境変数 `FALLBACK_REPLY`
 

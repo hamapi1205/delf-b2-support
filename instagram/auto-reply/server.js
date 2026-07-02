@@ -38,8 +38,12 @@ const FALLBACK_REPLY =
 const GRAPH_BASE = `https://graph.instagram.com/${GRAPH_VERSION}`;
 
 // ===== カードデータ =====
+// 使うデッキを環境変数で選択:
+//   cards.json        = タロット20枚(デフォルト)
+//   cards-oracle.json = ハルの縁結びオラクル50枚
+const DECK_FILE = process.env.DECK_FILE || "cards.json";
 const cards = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "cards.json"), "utf8"),
+  fs.readFileSync(path.join(__dirname, DECK_FILE), "utf8"),
 );
 
 /** コメント本文からカードを特定する(番号優先、なければカード名) */

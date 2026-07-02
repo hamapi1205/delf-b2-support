@@ -9,6 +9,7 @@
 | [posting-calendar.md](posting-calendar.md) | 2026年7月〜12月の投稿カレンダー(月別テーマ・週間ルーティン・KPI) |
 | [reel-scripts.md](reel-scripts.md) | リール・フィード・ストーリーズの台本テンプレート集(穴埋め式) |
 | [tarot-roulette-guide.md](tarot-roulette-guide.md) | 20枚高速タロットルーレットの作り方(カード画像生成プロンプト・動画手順・CTA) |
+| [oracle-deck.md](oracle-deck.md) | 完全オリジナル「ハルの縁結びオラクル」全50枚(章立て・画像生成プロンプト・商品化案) |
 | [auto-reply/](auto-reply/) | コメント→自動DM返信システム(ManyChat/エルグラム不要・Meta公式API・無料) |
 
 ## 全体の流れ(ファネル)
