@@ -1,0 +1,12 @@
+{
+  "name": "tarot-roulette-auto-reply",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Instagramコメント→自動DM返信(タロットルーレット用・Meta公式API直結)",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
