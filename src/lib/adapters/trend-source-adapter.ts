@@ -71,17 +71,8 @@ export class GoogleTrendsAdapter implements TrendSourceAdapter {
   }
 }
 
-/**
- * Reddit の急上昇ポストを取得する(将来実装)。
- * 公式APIあり。subreddit単位でのニッチトレンド発見に向く。
- */
-export class RedditAdapter implements TrendSourceAdapter {
-  readonly id = "reddit";
-  readonly platform = "reddit" as const;
-  fetchTrends(): Promise<DiscoveredTrend[]> {
-    throw new Error("Not implemented: MVPでは手入力のみ");
-  }
-}
+// Reddit の急上昇ポスト取得は実装済み → ./reddit.ts の RedditAdapter を参照。
+// subreddit単位でのニッチトレンド発見に向き、公開JSONエンドポイントで認証不要。
 
 /**
  * Meta Graph API 連携(将来実装)。

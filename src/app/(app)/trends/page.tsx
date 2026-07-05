@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { Button, Card, CardBody, EmptyState, PageHeader } from "@/components/ui";
+import { IngestButton } from "@/components/ingest-button";
 import { PlatformBadge, RecommendationBadge, ScorePill, StatusBadge } from "@/components/badges";
 import { CATEGORY_LABELS, formatDate } from "@/lib/labels";
 import type { TrendAnalysis, TrendItem } from "@/lib/types";
@@ -39,9 +40,12 @@ export default async function TrendsPage() {
         title="トレンド一覧"
         description="登録済みの海外トレンドと分析状況"
         action={
-          <Link href="/trends/new">
-            <Button>＋ トレンド登録</Button>
-          </Link>
+          <div className="flex items-start gap-3">
+            <IngestButton />
+            <Link href="/trends/new">
+              <Button>＋ トレンド登録</Button>
+            </Link>
+          </div>
         }
       />
 

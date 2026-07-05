@@ -100,6 +100,20 @@ http://localhost:3000 を開くとログイン画面が表示されます。「�
 
 - `POST /api/analyze-trend` — `{ trend_item_id }` を受け取り、OpenAI Structured Outputs でJSON Schemaに沿った分析を生成して `trend_analyses` に保存
 - `POST /api/generate-content-package` — `{ trend_item_id, analysis_id }` を受け取り、投稿フォーマット一式を生成して `content_packages` に保存
+- `POST /api/ingest-trends` — Redditから海外トレンドを自動取得し、新規分を登録+upvote上位を自動AI分析(トレンド一覧の「自動取得」ボタン)
+- `GET /api/cron/daily-ingest` — 上記の定期実行用(Vercel Cron、`CRON_SECRET` で認証)
+
+### トレンド自動取得(Reddit)
+
+手入力に加えて、Redditの急上昇投稿を自動で取り込めます。
+
+- **手動実行**: トレンド一覧の「🔄 海外トレンドを自動取得」ボタン
+- **毎朝の自動実行**: Vercelにデプロイすると `vercel.json` のCron設定により毎日 7:00 JST(22:00 UTC)に自動実行されます。Vercelの環境変数に `CRON_SECRET`(ランダムな長い文字列)を設定してください
+- **対象subredditの変更**: 環境変数 `REDDIT_SUBREDDITS` で設定(例: `ChatGPT:ai,SideProject:app`)。`REDDIT_MIN_SCORE` 未満のupvoteの投稿は取り込みません
+- **コスト管理**: 自動AI分析は1回の取り込みにつき `AUTO_ANALYZE_LIMIT` 件(デフォルト3件)まで。残りは一覧から手動で分析できます
+- 取得はRedditの公開JSONエンドポイント(認証不要・読み取り専用)を利用します。TikTok/Instagram等の非公式スクレイピングは規約違反リスクがあるため実装していません
+
+これにより毎朝の運用は「ダッシュボードでスコア上位を確認 → 採用するネタを選んでパッケージ生成」だけになります。
 
 ### スコアリングの仕組み
 
