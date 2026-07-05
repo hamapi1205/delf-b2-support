@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
-import { Card, CardBody, CardHeader, EmptyState, PageHeader, StatRow } from "@/components/ui";
+import { Badge, Card, CardBody, CardHeader, EmptyState, PageHeader, StatRow } from "@/components/ui";
 import { PromptTemplateEditor } from "@/components/prompt-template-editor";
+import { getAIProvider } from "@/lib/ai-provider";
 import type { PromptTemplate } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -17,6 +18,8 @@ export default async function SettingsPage() {
     supabase.auth.getUser(),
   ]);
 
+  const provider = getAIProvider();
+
   return (
     <div className="max-w-4xl">
       <PageHeader
@@ -29,17 +32,35 @@ export default async function SettingsPage() {
         <CardBody>
           <StatRow label="ログイン中のユーザー">{userData.user?.email ?? "—"}</StatRow>
           <StatRow label="AIプロバイダ">
-            {process.env.AI_PROVIDER === "openai" ? "OpenAI" : "Google Gemini(デフォルト)"}
+            {provider === "demo" ? (
+              <span className="flex items-center justify-end gap-2">
+                <Badge color="yellow">デモモード</Badge>
+                <span className="text-xs text-zinc-400">APIキー未設定</span>
+              </span>
+            ) : provider === "openai" ? (
+              "OpenAI"
+            ) : (
+              "Google Gemini"
+            )}
           </StatRow>
           <StatRow label="モデル">
-            {process.env.AI_PROVIDER === "openai"
-              ? process.env.OPENAI_MODEL || "gpt-4o-mini(デフォルト)"
-              : process.env.GEMINI_MODEL || "gemini-2.0-flash(デフォルト)"}
+            {provider === "demo"
+              ? "サンプル出力(AI呼び出しなし)"
+              : provider === "openai"
+                ? process.env.OPENAI_MODEL || "gpt-4o-mini(デフォルト)"
+                : process.env.GEMINI_MODEL || "gemini-2.0-flash(デフォルト)"}
           </StatRow>
-          <p className="mt-2 text-xs text-zinc-400">
-            プロバイダは環境変数 AI_PROVIDER(gemini / openai)、モデルは GEMINI_MODEL / OPENAI_MODEL
-            で変更できます。APIキーはサーバー側でのみ使用され、ブラウザには送信されません。
-          </p>
+          {provider === "demo" ? (
+            <p className="mt-2 text-xs text-amber-600">
+              現在はデモモードです。AI分析・生成は決定的なサンプル出力を返します。本物のAIを使うには
+              GOOGLE_API_KEY(無料・aistudio.google.com)を .env.local に設定してください。
+            </p>
+          ) : (
+            <p className="mt-2 text-xs text-zinc-400">
+              プロバイダは環境変数 AI_PROVIDER(gemini / openai)、モデルは GEMINI_MODEL /
+              OPENAI_MODEL で変更できます。APIキーはサーバー側でのみ使用され、ブラウザには送信されません。
+            </p>
+          )}
         </CardBody>
       </Card>
 

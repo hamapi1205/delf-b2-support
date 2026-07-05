@@ -4,6 +4,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { generateStructured } from "@/lib/openai";
 import { contentPackageAiSchema, generatePackageRequestSchema } from "@/lib/schemas";
 import { DEFAULT_GENERATE_PROMPT, renderTemplate } from "@/lib/prompts";
+import { isDemoMode } from "@/lib/ai-provider";
 import type { TrendAnalysis, TrendItem } from "@/lib/types";
 
 export const maxDuration = 60;
@@ -149,7 +150,7 @@ export async function POST(request: Request) {
           ? "著作権リスクが高い評価です。safe_reconstruction_advice を確認し、引用範囲と出典表記を必ず守ってください。"
           : null;
 
-    return NextResponse.json({ content_package: contentPackage, warning });
+    return NextResponse.json({ content_package: contentPackage, warning, demo: isDemoMode() });
   } catch (error) {
     const message = error instanceof Error ? error.message : "不明なエラーが発生しました";
     console.error("generate-content-package failed:", error);
