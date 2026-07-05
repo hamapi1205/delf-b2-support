@@ -29,7 +29,22 @@
 npm install
 ```
 
-### 2. Supabase プロジェクトの作成
+### 2. AI APIキーの取得(Google Gemini推奨 / 無料・クレカ不要)
+
+**方法A: Google Gemini API (推奨)**
+1. [aistudio.google.com](https://aistudio.google.com) にGoogleアカウントでログイン
+2. 左上「Get API key」→「Create API key」
+3. キーをコピーして `.env.local` の `GOOGLE_API_KEY` に貼る
+   - 無料枠: 1日1,500リクエスト・毎分15リクエスト(このツール用途で十分)
+   - 日本語が得意
+   - クレカ登録不要
+
+**方法B: OpenAI API**
+1. [platform.openai.com](https://platform.openai.com) でキーを作成・支払い方法を登録
+2. キーを `.env.local` の `OPENAI_API_KEY` に貼る、`AI_PROVIDER=openai` に変更
+   - gpt-4o-miniは分析1回1円未満で安い
+
+### 3. Supabase プロジェクトの作成
 
 1. [supabase.com](https://supabase.com) で新規プロジェクトを作成
 2. **SQL Editor** を開き、`supabase/migrations/0001_init.sql` の内容を実行(テーブル・enum・RLSが作成されます)
@@ -47,21 +62,23 @@ supabase db push          # migrations を適用
 4. **Authentication > Providers** で Email を有効にする(デフォルトで有効)
    - 開発中は **Authentication > Settings** で「Confirm email」をオフにすると、確認メール無しでログインできて楽です
 
-### 3. 環境変数の設定
+### 4. 環境変数の設定
 
 ```bash
 cp .env.example .env.local
 ```
 
-| 変数 | 説明 | 取得場所 |
-| --- | --- | --- |
-| `NEXT_PUBLIC_SUPABASE_URL` | SupabaseプロジェクトURL | Project Settings > API |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | 匿名キー(ブラウザ用) | Project Settings > API |
-| `SUPABASE_SERVICE_ROLE_KEY` | Service Roleキー(**サーバー専用・秘密**) | Project Settings > API |
-| `OPENAI_API_KEY` | OpenAI APIキー | platform.openai.com |
-| `OPENAI_MODEL` | 使用モデル(省略時 `gpt-4o-mini`) | 任意 |
+`.env.local` に上記で取得したキーを貼る:
 
-### 4. 開発サーバーの起動
+```
+AI_PROVIDER=gemini
+GOOGLE_API_KEY=<ここに上記のGemini APIキーを貼る>
+NEXT_PUBLIC_SUPABASE_URL=<Supabase Project Settings > API から>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<Supabase Project Settings > API から>
+SUPABASE_SERVICE_ROLE_KEY=<Supabase Project Settings > API から>
+```
+
+### 5. 開発サーバーの起動
 
 ```bash
 npm run dev
@@ -69,13 +86,28 @@ npm run dev
 
 http://localhost:3000 を開くとログイン画面が表示されます。「アカウントを新規作成する」からメール+パスワードでアカウントを作成してログインしてください。
 
-### 5. 動作確認の流れ
+### 6. 動作確認の流れ
 
 1. **トレンド一覧** — seedで入ったデモトレンド3件が見えます
 2. トレンド詳細を開き **「AI分析を実行」** → 分析結果がDBに保存され、スコアと推奨判定が表示されます
 3. 分析結果から **「コンテンツパッケージを生成」** → 台本・キャプション一式が生成されます
 4. **パフォーマンストラッカー** で投稿を記録し、数値を入力すると保存率などが自動計算されます
 5. **ダッシュボード** にスコア上位の未投稿ネタと成績上位の投稿が表示されます
+
+## AI プロバイダの選択
+
+デフォルトは **Google Gemini** (無料)に設定されています。
+
+### Gemini (推奨・無料)
+- 利点: クレカ不要、無料枠が大きい、日本語が得意
+- 設定: `AI_PROVIDER=gemini`、`GOOGLE_API_KEY=<発行したキー>`
+
+### OpenAI
+- 利点: 性能が高い、安定している
+- 費用: 1回1円未満だが有料
+- 設定: `AI_PROVIDER=openai`、`OPENAI_API_KEY=<発行したキー>`
+
+プロバイダを変更する場合は `.env.local` の `AI_PROVIDER` を修正して `npm run dev` を再起動してください。
 
 ## DB migration 方法
 

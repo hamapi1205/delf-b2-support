@@ -28,11 +28,17 @@ export default async function SettingsPage() {
         <CardHeader title="アカウント・AI設定" />
         <CardBody>
           <StatRow label="ログイン中のユーザー">{userData.user?.email ?? "—"}</StatRow>
-          <StatRow label="OpenAIモデル">
-            {process.env.OPENAI_MODEL || "gpt-4o-mini(デフォルト)"}
+          <StatRow label="AIプロバイダ">
+            {process.env.AI_PROVIDER === "openai" ? "OpenAI" : "Google Gemini(デフォルト)"}
+          </StatRow>
+          <StatRow label="モデル">
+            {process.env.AI_PROVIDER === "openai"
+              ? process.env.OPENAI_MODEL || "gpt-4o-mini(デフォルト)"
+              : process.env.GEMINI_MODEL || "gemini-2.0-flash(デフォルト)"}
           </StatRow>
           <p className="mt-2 text-xs text-zinc-400">
-            モデルは環境変数 OPENAI_MODEL で変更できます。APIキーはサーバー側でのみ使用され、ブラウザには送信されません。
+            プロバイダは環境変数 AI_PROVIDER(gemini / openai)、モデルは GEMINI_MODEL / OPENAI_MODEL
+            で変更できます。APIキーはサーバー側でのみ使用され、ブラウザには送信されません。
           </p>
         </CardBody>
       </Card>
