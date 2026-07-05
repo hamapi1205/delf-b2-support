@@ -27,10 +27,15 @@ export interface SubredditConfig {
  * 形式: "ChatGPT:ai,SideProject:app,InternetIsBeautiful"(カテゴリ省略時は other)
  */
 export function parseSubredditConfig(raw: string | undefined): SubredditConfig[] {
+  // トレンド解説路線(AIツール・便利サービス)向けのデフォルト構成。
+  // 変更は環境変数 REDDIT_SUBREDDITS で。
   const fallback: SubredditConfig[] = [
     { subreddit: "ChatGPT", category: "ai" },
     { subreddit: "artificial", category: "ai" },
+    { subreddit: "OpenAI", category: "ai" },
     { subreddit: "InternetIsBeautiful", category: "app" },
+    { subreddit: "SideProject", category: "app" },
+    { subreddit: "productivity", category: "lifestyle" },
   ];
   if (!raw?.trim()) return fallback;
 
