@@ -11,12 +11,12 @@ export function AnalyzeButton({ trendId, hasAnalysis }: { trendId: string; hasAn
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [demo, setDemo] = useState(false);
+  const [demoReason, setDemoReason] = useState<string | null>(null);
 
   const run = async () => {
     setLoading(true);
     setError(null);
-    setDemo(false);
+    setDemoReason(null);
     try {
       const res = await fetch("/api/analyze-trend", {
         method: "POST",
@@ -25,7 +25,7 @@ export function AnalyzeButton({ trendId, hasAnalysis }: { trendId: string; hasAn
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error ?? "分析に失敗しました");
-      if (json.demo) setDemo(true);
+      if (json.demo) setDemoReason(json.fallbackReason ?? "AIキーが設定されていません");
       router.refresh();
     } catch (e) {
       setError(e instanceof Error ? e.message : "分析に失敗しました");
@@ -40,9 +40,9 @@ export function AnalyzeButton({ trendId, hasAnalysis }: { trendId: string; hasAn
         {loading && <Spinner />}
         {loading ? "AI分析中…(30秒ほどかかります)" : hasAnalysis ? "AI分析を再実行" : "AI分析を実行"}
       </Button>
-      {demo && (
+      {demoReason && (
         <p className="max-w-xs text-right text-xs text-amber-600">
-          ⚠ デモモードのサンプル出力です。本物のAI分析には GOOGLE_API_KEY を設定してください。
+          ⚠ サンプル出力を表示しています({demoReason})
         </p>
       )}
       {error && <p className="text-xs text-red-600">{error}</p>}
@@ -76,7 +76,7 @@ export function GeneratePackageButton({
       if (!res.ok) throw new Error(json.error ?? "生成に失敗しました");
       if (json.demo) {
         setWarning(
-          "デモモードのサンプル出力です。本物のAI生成には GOOGLE_API_KEY を設定してください。",
+          `サンプル出力を表示しています(${json.fallbackReason ?? "AIキーが設定されていません"})`,
         );
       } else if (json.warning) {
         setWarning(json.warning);

@@ -1,9 +1,15 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { generateStructured } from "@/lib/openai";
+import { generateStructuredWithFallback } from "@/lib/ai-provider";
 import { trendAnalysisAiSchema } from "@/lib/schemas";
 import { computeTotalScore, decideRecommendation } from "@/lib/scoring";
 import { DEFAULT_ANALYZE_PROMPT, renderTemplate } from "@/lib/prompts";
 import type { TrendAnalysis, TrendItem } from "@/lib/types";
+
+export interface TrendAnalysisResult {
+  analysis: TrendAnalysis;
+  /** 実際のAI呼び出しに失敗し、デモ出力にフォールバックした場合の理由 */
+  fallbackReason: string | null;
+}
 
 /**
  * トレンド1件をAI分析して trend_analyses に保存する。
@@ -12,7 +18,7 @@ import type { TrendAnalysis, TrendItem } from "@/lib/types";
 export async function runTrendAnalysis(
   admin: SupabaseClient,
   trend: TrendItem,
-): Promise<TrendAnalysis> {
+): Promise<TrendAnalysisResult> {
   const { data: template } = await admin
     .from("prompt_templates")
     .select("template")
@@ -48,7 +54,7 @@ export async function runTrendAnalysis(
     TREND_JSON: trendJson,
   });
 
-  const ai = await generateStructured({
+  const { data: ai, fallbackReason } = await generateStructuredWithFallback({
     systemPrompt,
     userPrompt: "上記のトレンドを分析し、指定されたJSONスキーマに従って日本語で出力してください。",
     schema: trendAnalysisAiSchema,
@@ -95,5 +101,5 @@ export async function runTrendAnalysis(
     await admin.from("trend_items").update({ status: "analyzing" }).eq("id", trend.id);
   }
 
-  return analysis;
+  return { analysis, fallbackReason };
 }
