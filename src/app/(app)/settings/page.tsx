@@ -48,7 +48,7 @@ export default async function SettingsPage() {
               ? "サンプル出力(AI呼び出しなし)"
               : provider === "openai"
                 ? process.env.OPENAI_MODEL || "gpt-4o-mini(デフォルト)"
-                : process.env.GEMINI_MODEL || "gemini-2.0-flash(デフォルト)"}
+                : process.env.GEMINI_MODEL || "gemini-flash-latest(デフォルト)"}
           </StatRow>
           {provider === "demo" ? (
             <p className="mt-2 text-xs text-amber-600">
